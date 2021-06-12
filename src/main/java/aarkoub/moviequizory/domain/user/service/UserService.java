@@ -1,7 +1,7 @@
 package aarkoub.moviequizory.domain.user.service;
 
 import aarkoub.moviequizory.db.user.IUserRepository;
-import aarkoub.moviequizory.exception.user.UserNotFoundException;
+import aarkoub.moviequizory.db.user.UserNotFoundException;
 import aarkoub.moviequizory.domain.user.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.lang.Nullable;

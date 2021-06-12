@@ -1,7 +1,6 @@
 package aarkoub.moviequizory.db.user;
 
 import aarkoub.moviequizory.domain.user.User;
-import aarkoub.moviequizory.exception.user.UserNotFoundException;
 import org.springframework.stereotype.Repository;
 
 import java.util.UUID;

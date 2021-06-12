@@ -1,7 +1,6 @@
 package aarkoub.moviequizory.db.user;
 
 import aarkoub.moviequizory.domain.user.User;
-import aarkoub.moviequizory.exception.user.UserNotFoundException;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

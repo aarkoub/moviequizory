@@ -1,9 +1,8 @@
 package aarkoub.moviequizory.domain.user;
 
 import aarkoub.moviequizory.db.user.IUserRepository;
-import aarkoub.moviequizory.exception.user.UserNotFoundException;
+import aarkoub.moviequizory.db.user.UserNotFoundException;
 import aarkoub.moviequizory.domain.user.service.IUserService;
-import aarkoub.moviequizory.domain.user.User;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;

@@ -1,4 +1,4 @@
-package aarkoub.moviequizory.exception.user;
+package aarkoub.moviequizory.db.user;
 
 public class UserNotFoundException extends Exception {
 
