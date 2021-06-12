@@ -1,4 +1,4 @@
-package aarkoub.moviequizory.domain;
+package aarkoub.moviequizory.domain.user;
 
 import aarkoub.moviequizory.db.user.IUserRepository;
 import aarkoub.moviequizory.exception.user.UserNotFoundException;
