@@ -9,6 +9,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.client.ExchangeStrategies;
 import org.springframework.web.reactive.function.client.WebClient;
+import org.springframework.web.reactive.function.client.WebClientResponseException;
 
 import java.util.*;
 
@@ -47,7 +48,7 @@ public class MovieDBAPIClient {
                 .block();
     }
 
-    public String getMovieCredits(int id) {
+    public String getMovieCredits(int id) throws WebClientResponseException {
         return getApiClient()
                 .get()
                 .uri("/movie/" + id + "/credits?api_key=" + API_KEY)
@@ -87,7 +88,14 @@ public class MovieDBAPIClient {
 
         List<Integer> movieIdsToRemove = new ArrayList<>();
         for (Integer id : moviesMap.keySet()) {
-            JSONObject credits = new JSONObject(getMovieCredits(id));
+            String creditsString = null;
+            try{
+                creditsString = getMovieCredits(id);
+            }catch (WebClientResponseException e){
+                movieIdsToRemove.add(id);
+                continue;
+            }
+            JSONObject credits = new JSONObject(creditsString);
             JSONArray cast = credits.getJSONArray("cast");
             List<Actor> actors = new ArrayList<>();
             if (cast.length() == 0) {
