@@ -4,11 +4,13 @@ import aarkoub.moviequizory.domain.actor.Actor;
 import aarkoub.moviequizory.domain.movie.Movie;
 import aarkoub.moviequizory.domain.question.Question;
 import aarkoub.moviequizory.domain.quiz.Quiz;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
+@Component
 public class QuizGenerator {
 
     Random rand;
