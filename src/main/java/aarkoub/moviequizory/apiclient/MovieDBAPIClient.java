@@ -19,7 +19,7 @@ public class MovieDBAPIClient {
     private String API_KEY;
 
     @Bean
-    public WebClient apiClient() {
+    public WebClient getApiClient() {
         return WebClient.builder().exchangeStrategies(ExchangeStrategies.builder()
                 .codecs(configurer -> configurer
                         .defaultCodecs()
@@ -30,7 +30,7 @@ public class MovieDBAPIClient {
     }
 
     public String getMostExpensiveMovies(int pageNum) {
-        return apiClient()
+        return getApiClient()
                 .get()
                 .uri("/discover/movie?api_key=" + API_KEY + "&sort_by=revenue.desc&page=" + pageNum)
                 .retrieve()
@@ -39,7 +39,7 @@ public class MovieDBAPIClient {
     }
 
     public String getActorImages(int id) {
-        return apiClient()
+        return getApiClient()
                 .get()
                 .uri("/person/" + id + "/images?api_key=" + API_KEY)
                 .retrieve()
@@ -48,7 +48,7 @@ public class MovieDBAPIClient {
     }
 
     public String getMovieCredits(int id) {
-        return apiClient()
+        return getApiClient()
                 .get()
                 .uri("/movie/" + id + "/credits?api_key=" + API_KEY)
                 .retrieve()
