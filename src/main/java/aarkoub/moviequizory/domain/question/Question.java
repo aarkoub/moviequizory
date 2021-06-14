@@ -32,4 +32,9 @@ public class Question {
     public boolean isTrue() {
         return isTrue;
     }
+
+    @Override
+    public String toString(){
+        return content;
+    }
 }
