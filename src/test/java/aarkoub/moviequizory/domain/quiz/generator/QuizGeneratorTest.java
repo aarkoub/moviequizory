@@ -35,7 +35,7 @@ public class QuizGeneratorTest {
 
         Quiz quiz = gen.generate(moviesMap, actorsInMovies);
 
-        Assertions.assertEquals(200, quiz.getQuestions().length);
+        Assertions.assertEquals(100, quiz.getQuestions().length);
 
         for (int i = 0; i < quiz.getQuestions().length; i++) {
 

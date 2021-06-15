@@ -72,7 +72,7 @@ class MovieQuizoryAPITests {
 
         mockMvc.perform(get("/quizzes/generate"))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.questions", Matchers.hasSize(200)));
+                .andExpect(jsonPath("$.questions", Matchers.hasSize(100)));
     }
 
 }

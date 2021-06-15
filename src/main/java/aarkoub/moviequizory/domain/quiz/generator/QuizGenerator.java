@@ -14,7 +14,7 @@ import java.util.Random;
 public class QuizGenerator {
 
     Random rand;
-    int maxSizeQuiz = 200;
+    int maxSizeQuiz = 100;
 
     public QuizGenerator(){
         rand = new Random();

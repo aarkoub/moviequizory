@@ -22,7 +22,7 @@ public class QuizService implements IQuizService  {
     QuizGenerator generator;
 
     public Quiz getQuiz() {
-        Map<Integer, Movie> movieMap = client.getMovies(6);
+        Map<Integer, Movie> movieMap = client.getMovies(3);
         Map<Integer, List<Actor>> actorsInMovies = client.getActorsPerMovie(movieMap);
         return generator.generate(movieMap, actorsInMovies);
     }
