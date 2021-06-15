@@ -19,6 +19,7 @@ import javax.servlet.http.Cookie;
 import java.util.UUID;
 
 import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.CoreMatchers.notNullValue;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
@@ -40,7 +41,9 @@ class MovieQuizoryAPITests {
     void createUser() throws Exception {
         mockMvc.perform(get("/users/create"))
                 .andExpect(status().isOk())
-                .andExpect(cookie().exists("userId"));
+                .andExpect(cookie().exists("userId"))
+                .andExpect(jsonPath("$.id", notNullValue()))
+                .andExpect(jsonPath("$.highscore", is(0)));
     }
 
     @Test
@@ -50,7 +53,9 @@ class MovieQuizoryAPITests {
         Cookie cookie = new Cookie("userId", id.toString());
         mockMvc.perform(get("/users/" + id).cookie(cookie))
                 .andExpect(status().isOk())
-                .andExpect(cookie().value("userId", id.toString()));
+                .andExpect(cookie().value("userId", id.toString()))
+                .andExpect(jsonPath("$.id", is(id.toString())))
+                .andExpect(jsonPath("$.highscore", is(0)));
     }
 
     @Test

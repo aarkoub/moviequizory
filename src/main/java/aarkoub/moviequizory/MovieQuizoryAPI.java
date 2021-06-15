@@ -31,16 +31,20 @@ public class MovieQuizoryAPI {
 
 	@PostMapping("/users/create")
 	@ResponseBody
-	void createUser(HttpServletRequest request, HttpServletResponse response){
-		Cookie cookie = new Cookie("userId", userService.retrieve(getUserId(request)).getId().toString());
+	User createUser(HttpServletRequest request, HttpServletResponse response){
+		User u = userService.retrieve(getUserId(request));
+		Cookie cookie = new Cookie("userId", u.getId().toString());
 		response.addCookie(cookie);
+		return u;
 	}
 
 	@GetMapping("/users/{id}")
 	@ResponseBody
-	void getUser(HttpServletRequest request, HttpServletResponse response){
-		Cookie cookie = new Cookie("userId", userService.retrieve(getUserId(request)).getId().toString());
+	User getUser(HttpServletRequest request, HttpServletResponse response){
+		User u = userService.retrieve(getUserId(request));
+		Cookie cookie = new Cookie("userId", u.getId().toString());
 		response.addCookie(cookie);
+		return u;
 	}
 
 	@PostMapping("/users/{id}/setHighscore")
