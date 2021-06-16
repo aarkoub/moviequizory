@@ -18,7 +18,6 @@ public class QuizGenerator {
 
     public QuizGenerator(){
         rand = new Random();
-        rand.setSeed(123456789);
     }
 
     public QuizGenerator(int maxSizeQuiz){
@@ -29,6 +28,7 @@ public class QuizGenerator {
     public Quiz generate(Map<Integer, Movie> moviesMap, Map<Integer, List<Actor>> actorsInMovieMap){
         Object[] movieIds = moviesMap.keySet().toArray();
         Question[] questions = new Question[maxSizeQuiz];
+        System.out.println(movieIds.length);
         for (int i = 0; i < maxSizeQuiz; i++) {
             int ind = rand.nextInt() & Integer.MAX_VALUE % movieIds.length;
             Movie movie = moviesMap.get(movieIds[ind]);
