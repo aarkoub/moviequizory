@@ -63,7 +63,7 @@ class MovieQuizoryAPITests {
 
         UUID id = testEntityManager.persist(new User()).getId();
         Cookie cookie = new Cookie("userId", id.toString());
-        mockMvc.perform(post("/users/" + id + "/setHighscore")
+        mockMvc.perform(post("/users/" + id + "/highscore/set")
                 .cookie(cookie)
                 .contentType(MediaType.APPLICATION_JSON)
                 .content("{\"new_highscore\":8}"))

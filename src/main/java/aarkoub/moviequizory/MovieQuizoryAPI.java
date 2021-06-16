@@ -47,7 +47,7 @@ public class MovieQuizoryAPI {
 		return u;
 	}
 
-	@PostMapping("/users/{id}/setHighscore")
+	@PostMapping("/users/{id}/highscore/set")
 	@ResponseBody
 	User setHighscoreUser(@PathVariable String id, @RequestBody Map<String, Integer> score,
 						  HttpServletRequest request, HttpServletResponse response){
